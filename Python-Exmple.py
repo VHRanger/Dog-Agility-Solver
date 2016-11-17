@@ -1,5 +1,4 @@
 import numpy as np
-from numba import jit
 
 
 ##############################
@@ -67,8 +66,7 @@ obstacles = np.array([
 #END EXAMPLE DATA
 ##################
 
- 
-@jit 
+
 def SortObs(start, obs):
     """
     Sort obstacles by distance from current position
@@ -95,7 +93,7 @@ def SortObs(start, obs):
     #obs = obs[np.argsort(obs[:, 6])]
     return obs[:,6].argsort()
 
-@jit
+
 def BnB(start, parentObs, TIME, speed, finalLoc, obsPts, obsTime, solnLst=np.array([]), 
         currentPts=0, startLoc = False, Bound=0.5, SortedObs = np.array([])):
     """
